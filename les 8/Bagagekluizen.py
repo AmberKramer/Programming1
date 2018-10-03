@@ -1,3 +1,4 @@
+#work in progress
 print("1: Ik wil weten hoeveel kluizen nog vrij zijn \n2: Ik wil een nieuwe kluis \n3: Ik wil even iets uit mijn kluis halen\n4: Ik geef mijn kluis terug")
 keuze=int(input("Vul hier uw keuze in:"))
 infile=open('kluizen.txt', 'r')
