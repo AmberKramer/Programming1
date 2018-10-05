@@ -1,4 +1,3 @@
-#work in progress
 print("1: Ik wil weten hoeveel kluizen nog vrij zijn \n2: Ik wil een nieuwe kluis \n3: Ik wil even iets uit mijn kluis halen\n4: Ik geef mijn kluis terug")
 keuze=int(input("Vul hier uw keuze in:"))
 infile=open('kluizen.txt', 'r')
@@ -14,11 +13,13 @@ def ToonKluizenVrij():
 def NieuweKluis():
     kluizenBezet=infile.readlines()
     KluisNummers=[1,2,3,4,5,6,7,8,9,10,11,12]
-    if ToonKluizenVrij() <1:
-        for b in kluizenBezet:
-            info = b.split(";")
-            if int(info[0]) in KluisNummers:
-                KluisNummers.remove(int(info[0]))
+    for b in kluizenBezet:
+        info = b.split(";")
+        if int(info[0]) in KluisNummers:
+            KluisNummers.remove(int(info[0]))
+    if len(KluisNummers)==0:
+        print("Er geen geen lege kluizen meer beschikbaar.")
+    else:
         NieuweKluis = min(KluisNummers)
         wachtwoord = input("Vul hier het wachtwoord voor de kluis in: ")
         if len(wachtwoord) >= 4:
@@ -27,9 +28,6 @@ def NieuweKluis():
             print("Uw kluisnummer is", NieuweKluis)
         else:
             print("Vul alstublieft een geldig wachtwoord in")
-    else:
-        print("Er geen geen lege kluizen meer beschikbaar.")
-
     return
 
 def OpenKluis():
@@ -45,8 +43,6 @@ def OpenKluis():
     return
 
 
-
-
 if keuze==1:
     print("Er zijn nog",ToonKluizenVrij(),"kluizen vrij.")
 elif keuze==2:
@@ -54,7 +50,7 @@ elif keuze==2:
 elif keuze==3:
     OpenKluis()
 elif keuze==4:
-    print(4)
+    pass
 else:
     print("Voer alstublieft een correct nummer in.")
 
