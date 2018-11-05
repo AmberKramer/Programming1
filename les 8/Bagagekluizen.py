@@ -7,7 +7,7 @@ def ToonKluizenVrij():
     kluizenvrij=12
     for i in kluizen:
         kluizenbezet=kluizenbezet+1
-        kluizenvrij=12-kluizenbezet
+    kluizenvrij=12-kluizenbezet
     return int(kluizenvrij)
 
 def NieuweKluis():
